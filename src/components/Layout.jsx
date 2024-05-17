@@ -1,5 +1,3 @@
-import React from "react";
-
 const Layout = ({ children }) => {
   const globalStyle = {
     maxWidth: "1200px",

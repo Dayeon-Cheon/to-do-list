@@ -1,5 +1,3 @@
-import React from "react";
-
 const TodoItem = ({ todo, setTodos }) => {
   const { id, title, content, isDone } = todo;
 
