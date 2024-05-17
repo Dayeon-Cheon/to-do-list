@@ -39,9 +39,9 @@ const App = () => {
     }
 
     const newTodo = {
-      id: new Date().getTime(),
-      title: title,
-      body: body,
+      id: new Date(),
+      title,
+      body,
       isDone: false,
     };
 
@@ -51,7 +51,7 @@ const App = () => {
     setBody("");
   };
 
-  const isDoneChangeHandler = (id) => {
+  const isDoneToggleHandler = (id) => {
     setTodos(
       todos.map((todo) =>
         todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
@@ -66,11 +66,18 @@ const App = () => {
   const globalStyle = {
     maxWidth: "1200px",
     minWidth: "800px",
+    margin: "0 auto",
   };
 
   const headerStyle = {
     display: "flex",
     justifyContent: "space-between",
+    padding: "20px",
+  };
+
+  const pageTitleStyle = {
+    fontSize: "20px",
+    fontWeight: "bold",
   };
 
   const inputFormStyle = {
@@ -78,7 +85,7 @@ const App = () => {
     justifyContent: "space-between",
     padding: "20px",
     borderRadius: "4px",
-    backgroundColor: "gainsboro",
+    backgroundColor: "WhiteSmoke",
   };
 
   const labelStyle = {
@@ -110,6 +117,7 @@ const App = () => {
 
   const statusStyle = {
     marginTop: "20px",
+    marginBottom: "10px",
     fontSize: "20px",
     fontWeight: "bold",
   };
@@ -122,10 +130,10 @@ const App = () => {
   };
 
   return (
-    <div style={globalStyle}>
+    <main style={globalStyle}>
       <div id="header" style={headerStyle}>
-        <h2>My Todo List</h2>
-        <h2>React</h2>
+        <h2 style={pageTitleStyle}>My Todo List</h2>
+        <h2 style={pageTitleStyle}>React</h2>
       </div>
       <form onSubmit={addTodoHandler}>
         <div style={inputFormStyle}>
@@ -170,7 +178,7 @@ const App = () => {
                     todo={todo}
                     key={todo.id}
                     isDone={todo.isDone}
-                    handleIsDone={isDoneChangeHandler}
+                    handleIsDone={isDoneToggleHandler}
                     handleDelete={deleteTodoHandler}
                   />
                 );
@@ -188,7 +196,7 @@ const App = () => {
                     todo={todo}
                     key={todo.id}
                     isDone={todo.isDone}
-                    handleIsDone={isDoneChangeHandler}
+                    handleIsDone={isDoneToggleHandler}
                     handleDelete={deleteTodoHandler}
                   />
                 );
@@ -196,7 +204,7 @@ const App = () => {
           </ul>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 
