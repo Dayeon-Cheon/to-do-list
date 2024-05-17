@@ -1,7 +1,7 @@
 import React from "react";
 
 const TodoItem = ({ todo, setTodos }) => {
-  const { id, title, body, isDone } = todo;
+  const { id, title, content, isDone } = todo;
 
   const deleteTodo = () => {
     setTodos((prev) => prev.filter((todo) => todo.id !== id));
@@ -32,7 +32,7 @@ const TodoItem = ({ todo, setTodos }) => {
     fontWeight: "bold",
   };
 
-  const bodyStyle = {
+  const contentStyle = {
     fontSize: "14px",
   };
 
@@ -62,7 +62,7 @@ const TodoItem = ({ todo, setTodos }) => {
   return (
     <div style={todoBoxStyle}>
       <div style={titleStyle}>{title}</div>
-      <div style={bodyStyle}>{body}</div>
+      <div style={contentStyle}>{content}</div>
       <div style={buttonBoxStyle}>
         <button onClick={toggleTodo} style={statusButtonStyle}>
           {isDone ? "취소" : "완료"}

@@ -2,7 +2,7 @@ import React from "react";
 import TodoItem from "./TodoItem";
 
 const TodoList = ({ title, todos, setTodos }) => {
-  const bodyBoxStyle = {
+  const contentBoxStyle = {
     margin: "0 20px",
   };
 
@@ -21,7 +21,7 @@ const TodoList = ({ title, todos, setTodos }) => {
   };
 
   return (
-    <div style={bodyBoxStyle}>
+    <div style={contentBoxStyle}>
       <div>
         <div style={statusStyle}>{title}</div>
         <ul style={todoContainerStyle}>

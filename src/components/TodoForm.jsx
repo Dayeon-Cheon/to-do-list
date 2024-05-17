@@ -1,14 +1,12 @@
-import { useState } from "react";
-
 const TodoForm = ({ setTodos }) => {
   const addTodoHandler = (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.target);
     const title = formData.get("title");
-    const body = formData.get("body");
+    const content = formData.get("content");
 
-    if (!title.trim() || !body.trim()) {
+    if (!title.trim() || !content.trim()) {
       alert("제목과 내용을 모두 입력해 주세요.");
       return;
     }
@@ -16,12 +14,10 @@ const TodoForm = ({ setTodos }) => {
     const newTodo = {
       id: crypto.randomUUID(),
       title,
-      body,
+      content,
       isDone: false,
     };
 
-    // 비제어 컨포넌트
-    // useState의 비동기성 -> 콜백 함수 사용
     setTodos((prevTodos) => [newTodo, ...prevTodos]);
 
     e.target.reset();
@@ -66,10 +62,15 @@ const TodoForm = ({ setTodos }) => {
             제목
           </label>
           <input name="title" id="title" type="text" style={inputStyle}></input>
-          <label htmlFor="body" style={labelStyle}>
+          <label htmlFor="content" style={labelStyle}>
             내용
           </label>
-          <input name="body" id="body" type="text" style={inputStyle}></input>
+          <input
+            name="content"
+            id="content"
+            type="text"
+            style={inputStyle}
+          ></input>
         </div>
         <div>
           <button type="submit" style={addButtonStyle}>
