@@ -1,5 +1,5 @@
 const TodoForm = ({ setTodos }) => {
-  const addTodoHandler = (e) => {
+  const addTodo = (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.target);
@@ -55,7 +55,7 @@ const TodoForm = ({ setTodos }) => {
   };
 
   return (
-    <form onSubmit={addTodoHandler}>
+    <form onSubmit={addTodo}>
       <div style={inputFormStyle}>
         <div>
           <label htmlFor="title" style={labelStyle}>
